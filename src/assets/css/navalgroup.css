@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+  top: 0;
+  height: 100vh; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 260px;
+  background: yellow; }
+
+.mainpanel {
+  position: relative;
+  float: right;
+  width: calc(100% - 260px); }

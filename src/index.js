@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App';
+import DITLayout from './layouts/DIT/DITLayout.jsx';
 import * as serviceWorker from './serviceWorker';
+import './assets/css/navalgroup.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DITLayout />
   </React.StrictMode>,
   document.getElementById('root')
 );
