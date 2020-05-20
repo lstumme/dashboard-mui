@@ -28,8 +28,12 @@ const NotFound = () => {
                         <Typography variant="h1">
                             404 : Page not found
                         </Typography>
+                        <br />
                         <Typography variant="subtitle2">
                             Vous avez probablement entré manuellement une adress qui n'existe pas. Revenez en arrière et utilisez plutôt les liens.
+                        </Typography>
+                        <br />
+                        <Typography variant="subtitle2">
                             Si le problème persiste, veuillez contacter l'administrateur du site.
                         </Typography>
                     </div>

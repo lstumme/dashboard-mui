@@ -1,19 +1,27 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import {
-    MinimalLayout
+    MinimalLayout,
+    MainLayout
 } from './layouts'
 import {
     RouteWithLayout
 } from './components'
 import {
-    NotFound as NotFoundView
+    NotFound as NotFoundView,
+    Generic as GenericView
 } from './views';
 
 const Routes = () => {
     return (
         <Switch>
-            <Redirect exact from="/" to="/not-found" />
+            <Redirect exact from="/" to="/generic" />
+            <RouteWithLayout
+                component={GenericView}
+                exact
+                layout={MainLayout}
+                path='/generic'
+            />
             <RouteWithLayout
                 component={NotFoundView}
                 exact
