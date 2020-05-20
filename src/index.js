@@ -1,16 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import DITLayout from './layouts/DIT/DITLayout.jsx';
 import * as serviceWorker from './serviceWorker';
 import './assets/css/navalgroup.css';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <DITLayout />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './App.jsx';
+ReactDOM.render(<App/>,  document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
