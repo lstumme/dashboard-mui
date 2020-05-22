@@ -11,8 +11,11 @@ import {
 } from './components';
 
 import {
-    TypographyView
+    TypographyView,
+    ButtonsView,
 } from './views';
+import ContainedButtons from './reference/ContainedButtons';
+
 import theme from './theme';
 
 const browserHistory = createBrowserHistory();
@@ -36,7 +39,7 @@ const App = withStyles(styles)(
                         <div className={classes.root}>
                             <Sidebar />
                             <MainPanel>
-                                <TypographyView />
+                                <ButtonsView />
                             </MainPanel>
                         </div>
                     </Router>
