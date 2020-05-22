@@ -13,6 +13,7 @@ const MainLayout = props => {
     return (
         <>
             <Topbar/>
+            <Sidebar open="true" variant='persistent'/>
             <main>
             </main>
         </>
