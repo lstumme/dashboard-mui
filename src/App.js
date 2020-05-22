@@ -13,6 +13,7 @@ import {
 import {
     TypographyView
 } from './views';
+import theme from './theme';
 
 const browserHistory = createBrowserHistory();
 
@@ -28,7 +29,7 @@ const App = withStyles(styles)(
         render() {
             const { classes } = this.props;
             return (
-                <ThemeProvider>
+                <ThemeProvider theme={theme}>
                     <Router history={browserHistory}>
                         <AppToolbar />
                         <div className={classes.toolbarMargin} />

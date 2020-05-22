@@ -3,59 +3,59 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid, Typography as MuiTypography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    // padding: theme.spacing(4)
-  }
+    root: {
+        padding: "16px"
+    }
 }));
 
 const variants = {
-  h1: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  h2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  h3: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  h4: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  h5: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  h6: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  subtitle1: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  subtitle2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  body1:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque officia illo cumque? Nihil unde aperiam temporibus atque adipisci exercitationem hic? Ea quae exercitationem officia nesciunt corporis maxime eum nobis iure!',
-  body2:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque officia illo cumque? Nihil unde aperiam temporibus atque adipisci exercitationem hic? Ea quae exercitationem officia nesciunt corporis maxime eum nobis iure!',
-  caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  overline: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
-  button: 'Lorem ipsum dolor'
+    h1: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    h2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    h3: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    h4: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    h5: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    h6: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    subtitle1: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    subtitle2: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    body1:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo molestias distinctio hic alias mollitia earum quam iusto, fuga sunt velit illum accusantium dignissimos unde error ex nisi natus minima ad deserunt quis eos. Hic autem atque, neque, provident quae nostrum nemo inventore corporis vitae, tempora illo facilis illum quis eos itaque beatae. Sequi ea deserunt non impedit consectetur ex, quas dolor! Non facere accusantium adipisci quos nam fugiat suscipit pariatur quaerat, culpa reiciendis deleniti ipsam repellendus similique est cupiditate hic modi consectetur, quo consequuntur laudantium? Cum ducimus officia corrupti sit debitis tempora beatae, ratione totam quis alias assumenda exercitationem quod.',
+    body2:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo molestias distinctio hic alias mollitia earum quam iusto, fuga sunt velit illum accusantium dignissimos unde error ex nisi natus minima ad deserunt quis eos. Hic autem atque, neque, provident quae nostrum nemo inventore corporis vitae, tempora illo facilis illum quis eos itaque beatae. Sequi ea deserunt non impedit consectetur ex, quas dolor! Non facere accusantium adipisci quos nam fugiat suscipit pariatur quaerat, culpa reiciendis deleniti ipsam repellendus similique est cupiditate hic modi consectetur, quo consequuntur laudantium? Cum ducimus officia corrupti sit debitis tempora beatae, ratione totam quis alias assumenda exercitationem quod.',
+    caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    overline: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque!',
+    button: 'Lorem ipsum dolor'
 };
 
 const TypographyView = () => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <Grid
-        container
-        spacing={4}
-      >
-        {Object.keys(variants).map((key, i) => (
-          <Fragment key={i}>
+    return (
+        <div className={classes.root}>
             <Grid
-              item
-              sm={3}
-              xs={12}
+                container
+                spacing={4}
             >
-              <MuiTypography variant="caption">{key}</MuiTypography>
+                {Object.keys(variants).map((key, i) => (
+                    <Fragment key={i}>
+                        <Grid
+                            item
+                            sm={3}
+                            xs={12}
+                        >
+                            <MuiTypography variant="caption">{key}</MuiTypography>
+                        </Grid>
+                        <Grid
+                            item
+                            sm={9}
+                            xs={12}
+                        >
+                            <MuiTypography variant={key}>{variants[key]}</MuiTypography>
+                        </Grid>
+                    </Fragment>
+                ))}
             </Grid>
-            <Grid
-              item
-              sm={9}
-              xs={12}
-            >
-              <MuiTypography variant={key}>{variants[key]}</MuiTypography>
-            </Grid>
-          </Fragment>
-        ))}
-      </Grid>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default TypographyView;
