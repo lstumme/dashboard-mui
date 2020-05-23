@@ -15,7 +15,7 @@ import {
     ButtonsView,
 } from './views';
 import ContainedButtons from './reference/ContainedButtons';
-
+import ClippedBar from './reference/ClippedBar';
 import theme from './theme';
 
 const browserHistory = createBrowserHistory();
@@ -23,6 +23,7 @@ const browserHistory = createBrowserHistory();
 const styles = theme => ({
     root: {
         backgroundColor: theme.palette.primary,
+        display: 'flex'
     },
     toolbarMargin: theme.mixins.toolbar,
 });
@@ -32,14 +33,15 @@ const App = withStyles(styles)(
         render() {
             const { classes } = this.props;
             return (
+                //<ClippedBar/>
                 <ThemeProvider theme={theme}>
                     <Router history={browserHistory}>
-                        <AppToolbar />
-                        <div className={classes.toolbarMargin} />
                         <div className={classes.root}>
-                            <Sidebar />
+                            <AppToolbar />
+                            <Sidebar />                        
                             <MainPanel>
-                                <ButtonsView />
+                                {/* <ButtonsView /> */}
+                                <TypographyView/>
                             </MainPanel>
                         </div>
                     </Router>

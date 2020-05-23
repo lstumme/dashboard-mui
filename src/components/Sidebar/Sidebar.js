@@ -1,67 +1,75 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AddIcon from '@material-ui/icons/Add';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+    Drawer,
+    Divider,
+    Toolbar,
+    List,
+    ListItem,
+    ListItemText,
+    ListSubheader,
+    Grid,
+    ListItemIcon
+} from '@material-ui/core'
 
-const styles = theme => ({
+import {
+    Add as AddIcon,
+    Mail as MailIcon,
+    Inbox as InboxIcon,
+} from '@material-ui/icons';
+
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
-        width: '260px',
-        backgroundColor: 'green',
-        height: "100vh"
+        display: 'flex',
     },
-    flex: {
-        flex: 1
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
     },
     drawer: {
-        width: 240,
-        [theme.breakpoints.up('lg')]: {
-            marginTop: 64,
-            height: 'calc(100% - 64px)'
-        }
+        width: drawerWidth,
+        flexShrink: 0,
     },
-    toolbarMargin: theme.mixins.toolbar
-});
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerContainer: {
+        overflow: 'auto',
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+}));
 
-const Sidebar = withStyles(styles)(
-    class extends Component {
-        render() {
-            const { classes } = this.props;
-            return (
-                <Grid container justify="space-between">
-                    <Grid item>
-                        <Drawer variant='permanent' classes={{ paper: classes.drawer }}>
-                            <List>
-                                <ListSubheader>Dashboard</ListSubheader>
-                                <ListItem>
-                                    <ListItemIcon>
-                                        <AddIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>Ajouter</ListItemText>
-                                </ListItem>
-                                <ListItem>
-                                    <ListItemIcon>
-                                        <AddIcon />
-                                    </ListItemIcon>
-                                    <ListItemText>Ajouter</ListItemText>
-                                </ListItem>
-                            </List>
-                        </Drawer>
-                    </Grid>
-                </Grid>
-            );
-        }
-    }
-);
+const Sidebar = () => {
+    const classes = useStyles();
+    return (
+        <Drawer className={classes.drawer} variant="permanent" classes={{ paper: classes.drawerPaper, }}>
+            <Toolbar />
+            <div className={classes.drawerContainer}>
+                <List>
+                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                <Divider />
+                <List>
+                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+
+            </div>
+        </Drawer>
+    );
+};
 
 export default Sidebar;

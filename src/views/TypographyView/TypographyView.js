@@ -30,31 +30,18 @@ const TypographyView = () => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Grid
-                container
-                spacing={4}
-            >
-                {Object.keys(variants).map((key, i) => (
-                    <Fragment key={i}>
-                        <Grid
-                            item
-                            sm={3}
-                            xs={12}
-                        >
-                            <MuiTypography variant="caption">{key}</MuiTypography>
-                        </Grid>
-                        <Grid
-                            item
-                            sm={9}
-                            xs={12}
-                        >
-                            <MuiTypography variant={key}>{variants[key]}</MuiTypography>
-                        </Grid>
-                    </Fragment>
-                ))}
-            </Grid>
-        </div>
+        <Grid container spacing={1}>
+            {Object.keys(variants).map((key, i) => (
+                <Fragment key={i}>
+                    <Grid item sm={2} xs={12}>
+                        <MuiTypography variant="caption">{key}</MuiTypography>
+                    </Grid>
+                    <Grid item sm={10} xs={12}>
+                        <MuiTypography variant={key}>{variants[key]}</MuiTypography>
+                    </Grid>
+                </Fragment>
+            ))}
+        </Grid>
     );
 };
 

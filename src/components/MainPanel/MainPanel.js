@@ -1,13 +1,15 @@
 import React, { Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import {Toolbar} from '@material-ui/core';
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        width: 'calc(100%-260px)',
-        marginLeft: '260px',
-        height: '90vh'
     },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+      },
 });
 
 const MainPanel = withStyles(styles)(
@@ -15,7 +17,8 @@ const MainPanel = withStyles(styles)(
         render() {
             const { classes, children } = this.props;
             return (
-                <main>
+                <main className={classes.content}>
+                    <Toolbar/>
                     <div className={classes.root}>
                         {this.props.children}
                     </div>

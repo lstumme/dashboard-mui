@@ -14,6 +14,9 @@ const styles = theme => ({
     flex: {
         flex: 1
     },
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+    },    
     menuButton: {
         marginLeft: -12,
         marginRight: 20
@@ -27,7 +30,7 @@ const AppToolbar = withStyles(styles)(
         render() {
             const { classes } = this.props;
             return (
-                <AppBar>
+                <AppBar className={classes.appBar}>
                     <Toolbar>
                         <IconButton
                             className={classes.menuButton}
