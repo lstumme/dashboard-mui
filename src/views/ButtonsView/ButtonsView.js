@@ -81,14 +81,15 @@ const ButtonsView = () => {
                         <label htmlFor="contained-button-file">
                             <Button variant="contained" color="primary" component="span">
                                 Upload
-                                </Button>
+                            </Button>
                         </label>
                         <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
                         <label htmlFor="icon-button-file">
                             <IconButton color="primary" aria-label="upload picture" component="span">
                                 <PhotoCamera />
                             </IconButton>
-                        </label>                        </div>
+                        </label>
+                    </div>
                 </Grid>
             </Fragment>
             <Fragment>
@@ -151,13 +152,13 @@ const ButtonsView = () => {
                         </IconButton>
                         <IconButton color="primary" aria-label="add to shopping cart">
                             <AddShoppingCartIcon />
-                        </IconButton>                        </div>
+                        </IconButton>
+                    </div>
                 </Grid>
                 <Grid item md={6} xs={12}>
                 </Grid>
             </Fragment>
         </Grid>
-
     );
 };
 
