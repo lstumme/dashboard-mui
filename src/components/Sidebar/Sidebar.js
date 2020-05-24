@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -66,15 +67,15 @@ const useStyles = makeStyles((theme) => ({
 
 const Sidebar = (props) => {
     const classes = useStyles();
-    
-    const { state } = props;
-    
+
+    const { state, routes } = props;
+
     const [open, setOpen] = React.useState(true);
 
     React.useEffect(() => {
         setOpen(state);
     }, [state]);
-    
+
     return (
         <Drawer
             variant="permanent"
@@ -91,23 +92,15 @@ const Sidebar = (props) => {
             <Toolbar />
             <div>
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
+                    {routes.map((route, index) => (
+                        <Link to={route.path} style={{ textDecoration: 'none' }}>
+                            <ListItem button key={route.name}>
+                                <ListItemIcon>{route.icon}</ListItemIcon> 
+                                <ListItemText primary={route.name} />
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-
             </div>
         </Drawer>
     );

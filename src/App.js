@@ -14,6 +14,8 @@ import {
     TypographyView,
     ButtonsView,
 } from './views';
+
+import {routes} from './config';
 import ContainedButtons from './reference/ContainedButtons';
 import ClippedBar from './reference/ClippedBar';
 import theme from './theme';
@@ -41,10 +43,11 @@ const App = () => {
             <Router history={browserHistory}>
                 <div className={classes.root}>
                     <AppToolbar stateChanged={handleToolbarState}/>
-                    <Sidebar state={open}/>                        
-                    <MainPanel>
-                        {/* <ButtonsView /> */}
-                        <TypographyView/>
+                    <Sidebar state={open} routes={routes}/>                        
+                    
+                    <MainPanel routes={routes}>
+                        <ButtonsView />
+                        {/* <TypographyView/> */}
                     </MainPanel>
                 </div>
             </Router>

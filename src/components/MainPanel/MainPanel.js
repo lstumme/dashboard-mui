@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {Toolbar} from '@material-ui/core';
-
+import {Switch, Route} from 'react-router-dom';
 const styles = theme => ({
     root: {
         flexGrow: 1,
@@ -15,12 +15,16 @@ const styles = theme => ({
 const MainPanel = withStyles(styles)(
     class extends Component {
         render() {
-            const { classes, children } = this.props;
+            const { classes, routes } = this.props;
             return (
                 <main className={classes.content}>
                     <Toolbar/>
                     <div className={classes.root}>
-                        {this.props.children}
+                        <Switch>
+                            {routes.map((route,index) => (
+                                <Route path={route.path}>{route.view}</Route>
+                            ))}
+                        </Switch>
                     </div>
                 </main>
             );
