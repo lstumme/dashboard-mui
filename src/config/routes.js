@@ -2,10 +2,12 @@ import React, { lazy } from 'react';
 import {
     Crop75 as Crop75Icon,
     FontDownload as FontDownloadIcon,
+    ViewWeek as ViewWeekIcon
 } from '@material-ui/icons';
 import {
     ButtonsView,
-    TypographyView
+    TypographyView,
+    PanelsView
 } from '../views';
 
 const routes = [
@@ -17,10 +19,17 @@ const routes = [
     },
     {
         name: "Typography",
-        path: "/typeography",
+        path: "/typography",
         view: < TypographyView />,
-        icon: <FontDownloadIcon/>
-    }
+        icon: <FontDownloadIcon />
+    },
+    {
+        name: "Panels",
+        path: "/panels",
+        view: <PanelsView />,
+        icon: <ViewWeekIcon />
+    },
+
 ];
 
 export default routes;
