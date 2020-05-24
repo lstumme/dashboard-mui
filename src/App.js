@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
@@ -10,14 +9,7 @@ import {
     MainPanel
 } from './components';
 
-import {
-    TypographyView,
-    ButtonsView,
-} from './views';
-
 import {routes} from './config';
-import ContainedButtons from './reference/ContainedButtons';
-import ClippedBar from './reference/ClippedBar';
 import theme from './theme';
 
 const browserHistory = createBrowserHistory();
@@ -44,11 +36,7 @@ const App = () => {
                 <div className={classes.root}>
                     <AppToolbar stateChanged={handleToolbarState}/>
                     <Sidebar state={open} routes={routes}/>                        
-                    
-                    <MainPanel routes={routes}>
-                        <ButtonsView />
-                        {/* <TypographyView/> */}
-                    </MainPanel>
+                    <MainPanel routes={routes}></MainPanel>
                 </div>
             </Router>
         </ThemeProvider>
