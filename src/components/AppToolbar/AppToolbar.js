@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import {
+    List as ListIcon,
+    MoreVert as MoreVertIcon
+} from '@material-ui/icons';
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1
     },
@@ -16,42 +20,46 @@ const styles = theme => ({
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
-    },    
+    },
     menuButton: {
-        marginLeft: -12,
+        marginLeft: -20,
         marginRight: 20
     },
     toolbarMargin: theme.mixins.toolbar
-});
+}));
 
 
-const AppToolbar = withStyles(styles)(
-    class extends Component {
-        render() {
-            const { classes } = this.props;
-            return (
-                <AppBar className={classes.appBar}>
-                    <Toolbar>
-                        <IconButton
-                            className={classes.menuButton}
-                            color="inherit"
-                            aria-label="Menu"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography
-                            variant="h6"
-                            color="inherit"
-                            className={classes.flex}
-                        >
-                            My Title
-                        </Typography>
-                        <Button color="inherit">Login</Button>
-                    </Toolbar>
-                </AppBar>
-            );
-        }
+const AppToolbar = (props) => {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(true);
+    const handleDrawerState = () => {
+        let newState = !open;
+        props.stateChanged(newState);
+        setOpen(newState);
     }
-);
+    return (
+        <AppBar className={classes.appBar}>
+            <Toolbar>
+                <IconButton
+                    className={classes.menuButton}
+                    color="inherit"
+                    aria-label="Menu"
+                    onClick={handleDrawerState}
+                >
+
+                    {open ? <MoreVertIcon /> : <ListIcon />}
+                </IconButton>
+                <Typography
+                    variant="h6"
+                    color="inherit"
+                    className={classes.flex}
+                >
+                    My Title
+                        </Typography>
+                <Button color="inherit">Login</Button>
+            </Toolbar>
+        </AppBar>
+    );
+};
 
 export default AppToolbar;

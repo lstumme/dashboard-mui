@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { ThemeProvider } from '@material-ui/styles';
@@ -20,34 +20,36 @@ import theme from './theme';
 
 const browserHistory = createBrowserHistory();
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: theme.palette.primary,
         display: 'flex'
     },
     toolbarMargin: theme.mixins.toolbar,
-});
+}));
 
-const App = withStyles(styles)(
-    class extends Component {
-        render() {
-            const { classes } = this.props;
-            return (
-                //<ClippedBar/>
-                <ThemeProvider theme={theme}>
-                    <Router history={browserHistory}>
-                        <div className={classes.root}>
-                            <AppToolbar />
-                            <Sidebar />                        
-                            <MainPanel>
-                                {/* <ButtonsView /> */}
-                                <TypographyView/>
-                            </MainPanel>
-                        </div>
-                    </Router>
-                </ThemeProvider>
-            );
-        }
-    });
+const App = () => {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(true);
+
+    const handleToolbarState = (value) => {
+        setOpen(!open);
+    }
+    return (
+        //<ClippedBar/>
+        <ThemeProvider theme={theme}>
+            <Router history={browserHistory}>
+                <div className={classes.root}>
+                    <AppToolbar stateChanged={handleToolbarState}/>
+                    <Sidebar state={open}/>                        
+                    <MainPanel>
+                        {/* <ButtonsView /> */}
+                        <TypographyView/>
+                    </MainPanel>
+                </div>
+            </Router>
+        </ThemeProvider>
+    );
+};
 
 export default App;

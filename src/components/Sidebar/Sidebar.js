@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Drawer,
@@ -7,8 +8,6 @@ import {
     List,
     ListItem,
     ListItemText,
-    ListSubheader,
-    Grid,
     ListItemIcon
 } from '@material-ui/core'
 
@@ -30,12 +29,34 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        whiteSpace: 'nowrap',
     },
     drawerPaper: {
         width: drawerWidth,
     },
-    drawerContainer: {
-        overflow: 'auto',
+    // },
+    drawerOpen: {
+        width: drawerWidth,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
+    drawerClose: {
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        overflowX: 'hidden',
+        width: theme.spacing(7) + 1,
+    },
+    toolbar: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
     },
     content: {
         flexGrow: 1,
@@ -43,12 +64,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     const classes = useStyles();
+    
+    const { state } = props;
+    
+    const [open, setOpen] = React.useState(true);
+
+    React.useEffect(() => {
+        setOpen(state);
+    }, [state]);
+    
     return (
-        <Drawer className={classes.drawer} variant="permanent" classes={{ paper: classes.drawerPaper, }}>
+        <Drawer
+            variant="permanent"
+            className={clsx(classes.drawer, {
+                [classes.drawerOpen]: open,
+                [classes.drawerClose]: !open,
+            })}
+            classes={{
+                paper: clsx({
+                    [classes.drawerOpen]: open,
+                    [classes.drawerClose]: !open,
+                }),
+            }}>
             <Toolbar />
-            <div className={classes.drawerContainer}>
+            <div>
                 <List>
                     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                         <ListItem button key={text}>
