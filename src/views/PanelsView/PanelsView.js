@@ -8,7 +8,8 @@ import {
 
 import {
     HorizontalTabPanel,
-    VerticalTabPanel
+    VerticalTabPanel,
+    AccordionPanel
 } from './Components';
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,6 +20,10 @@ const useStyles = makeStyles(theme => ({
     },
     cardroot: {
         minHeight: 380,
+        margin: theme.spacing(2)
+    },
+    cardroot2: {
+        minHeight: 470,
         margin: theme.spacing(2)
     }
 }));
@@ -39,6 +44,14 @@ const PanelsView = () => {
                     <CardHeader title="Navigation Pills" subheader="Vertical Tabs" />
                     <CardContent>
                         <VerticalTabPanel />
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item md={6} sm={12}>
+                <Card className={classes.cardroot2}>
+                    <CardHeader title="Collapsible Accordion"/>
+                    <CardContent>
+                        <AccordionPanel />
                     </CardContent>
                 </Card>
             </Grid>
