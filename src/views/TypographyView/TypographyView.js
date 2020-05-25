@@ -4,7 +4,7 @@ import { Grid, Typography as MuiTypography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        padding: theme.spacing(4),
+        padding: theme.spacing(1),
     }
 }));
 
@@ -30,7 +30,7 @@ const TypographyView = () => {
     const classes = useStyles();
 
     return (
-        <Grid container spacing={1}>
+        <Grid container spacing={1} className={classes.root}>
             {Object.keys(variants).map((key, i) => (
                 <Fragment key={i}>
                     <Grid item sm={2} xs={12}>

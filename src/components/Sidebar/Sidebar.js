@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import {
     Drawer,
-    Divider,
     Toolbar,
     List,
     ListItem,
     ListItemText,
     ListItemIcon
 } from '@material-ui/core'
-
-import {
-    Add as AddIcon,
-    Mail as MailIcon,
-    Inbox as InboxIcon,
-} from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -93,7 +86,7 @@ const Sidebar = (props) => {
             <div>
                 <List>
                     {routes.map((route, index) => (
-                        <Link to={route.path} style={{ textDecoration: 'none' }}>
+                        <Link to={route.path} style={{ textDecoration: 'none' }} key={route.name}>
                             <ListItem button key={route.name}>
                                 <ListItemIcon>{route.icon}</ListItemIcon> 
                                 <ListItemText primary={route.name} />

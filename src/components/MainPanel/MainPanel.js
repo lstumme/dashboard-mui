@@ -22,7 +22,7 @@ const MainPanel = withStyles(styles)(
                     <div className={classes.root}>
                         <Switch>
                             {routes.map((route,index) => (
-                                <Route exact path={route.path}>{route.view}</Route>
+                                <Route exact path={route.path} key={route.name}>{route.view}</Route>
                             ))}
                         </Switch>
                     </div>

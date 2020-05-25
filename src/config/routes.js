@@ -1,13 +1,15 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import {
     Crop75 as Crop75Icon,
     FontDownload as FontDownloadIcon,
-    ViewWeek as ViewWeekIcon
+    ViewWeek as ViewWeekIcon,
+    NotificationImportant as AlertsIcon
 } from '@material-ui/icons';
 import {
     ButtonsView,
     TypographyView,
-    PanelsView
+    PanelsView, 
+    AlertsView
 } from '../views';
 
 const routes = [
@@ -29,6 +31,12 @@ const routes = [
         view: <PanelsView />,
         icon: <ViewWeekIcon />
     },
+    {
+        name:"Alerts",
+        path: "/alerts",
+        view: <AlertsView/>,
+        icon: <AlertsIcon/>
+    }
 
 ];
 

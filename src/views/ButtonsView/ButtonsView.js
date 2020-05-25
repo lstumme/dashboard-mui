@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import {
     Grid,
-    Typography as MuiTypography,
     Button,
     IconButton,
 } from '@material-ui/core';
