@@ -1,26 +1,23 @@
 import React, { Fragment } from 'react';
 import {
     Button,
-    Dialog, DialogActions, DialogContentText, DialogContent
+    Dialog, DialogTitle, DialogActions, DialogContentText, DialogContent,
+    TextField
 } from '@material-ui/core';
-import {
-    WarningOutlined as WarningOutlineIcon
-} from '@material-ui/icons';
 
-const ConfirmationAlert = (props) => {
-    const { label, children, onAccept, onDenied } = props;
+const FormDialog = (props) => {
+    const { label, title, children, onConfirmed } = props;
     const [open, setOpen] = React.useState(false);
 
-    const handleConfirm = event => {
+    const handleCloseSuccess = (event) => {
         setOpen(false);
-        onAccept(event);
+        if(onConfirmed) {
+            onConfirmed(event);
+        }   
     }
 
-    const handleClose = event => {
+    const handleClose = () =>{
         setOpen(false);
-        if(onDenied) {
-            onDenied(event);
-        }
     }
     const handleOpen = () => {
         setOpen(true);
@@ -36,17 +33,23 @@ const ConfirmationAlert = (props) => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
+                <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
                 <DialogContent>
-                    <div style={{ textAlign: "center" }}>
-                        <WarningOutlineIcon style={{ fontSize: 75, color: "orange" }} />
-                    </div>
                     <DialogContentText id="alert-dialog-description">
                         {children}
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Email Address"
+                            type="email"
+                            fullWidth
+                        />
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleConfirm} color="primary" autoFocus>
-                        Confirm
+                    <Button onClick={handleCloseSuccess} color="primary" autoFocus>
+                        OK
                     </Button>
                     <Button onClick={handleClose} color="primary" autoFocus>
                         Cancel
@@ -55,6 +58,6 @@ const ConfirmationAlert = (props) => {
             </Dialog>
         </Fragment>
     )
-};
+}
 
-export default ConfirmationAlert;
+export default FormDialog;

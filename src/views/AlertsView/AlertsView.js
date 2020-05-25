@@ -17,7 +17,8 @@ import {
     TitleAlert,
     SuccessAlert,
     ConfirmationAlert,
-    AutoCloseAlert
+    AutoCloseAlert,
+    FormDialog
 } from './Components';
 
 const useStyles = makeStyles(theme => ({
@@ -148,7 +149,9 @@ const AlertsView = () => {
                     <Card className={classes.cardroot}>
                         <CardHeader title="Modal window with input field" />
                         <CardContent>
-                            <Button variant="contained" color="primary">Try it!</Button>
+                            <FormDialog label="Try it!" title="Subscribe">
+                                Please enter your mail to stay in touch !
+                            </FormDialog>
                         </CardContent>
                     </Card>
                 </Grid>
