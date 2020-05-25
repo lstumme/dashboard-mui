@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -18,13 +19,13 @@ function TabPanel(props) {
         <div
             role="tabpanel"
             hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
+            id={`scrollable-auto-tabpanel-${index}`}
+            aria-labelledby={`scrollable-auto-tab-${index}`}
             {...other}
         >
             {value === index && (
                 <Box p={3}>
-                    {children}
+                    <Typography>{children}</Typography>
                 </Box>
             )}
         </div>
@@ -39,26 +40,20 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
     return {
-        id: `vertical-tab-${index}`,
-        'aria-controls': `vertical-tabpanel-${index}`,
+        id: `scrollable-auto-tab-${index}`,
+        'aria-controls': `scrollable-auto-tabpanel-${index}`,
     };
 }
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        width: '100%',
         backgroundColor: theme.palette.background.paper,
-        display: 'flex',
-        height: 240,
-    },
-    tabs: {
-        borderRight: `1px solid ${theme.palette.divider}`,
-        minWidth: 130,
-        height: 216
     },
 }));
 
-export default function VerticalIconTabPanel() {
+export default function HorizontalTabPanel() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -68,18 +63,21 @@ export default function VerticalIconTabPanel() {
 
     return (
         <div className={classes.root}>
-            <Tabs
-                orientation="vertical"
-                variant="scrollable"
-                value={value}
-                onChange={handleChange}
-                aria-label="Vertical tabs example"
-                className={classes.tabs}
-            >
-                <Tab label="Profile"  icon={<ProfileIcon/>} {...a11yProps(0)} />
-                <Tab label="Settings" icon={<SettingsIcon/>} {...a11yProps(1)} />
-                <Tab label="Options" icon={<OptionsIcon/>} {...a11yProps(2)} />
-            </Tabs>
+            <AppBar position="static" color="default">
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    variant="scrollable"
+                    scrollButtons="auto"
+                    aria-label="scrollable auto tabs example"
+                >
+                    <Tab label="Profile" icon={<ProfileIcon/>} {...a11yProps(0)} />
+                    <Tab label="Settings" icon={<SettingsIcon/>} {...a11yProps(1)} />
+                    <Tab label="Options" icon={<OptionsIcon/>} {...a11yProps(2)} />
+                </Tabs>
+            </AppBar>
             <TabPanel value={value} index={0}>
                 <Typography variant="body1">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus, repellat officiis adipisci perspiciatis vel tempora. Quae aspernatur facere fugiat alias atque quibusdam illum excepturi. Expedita ut ratione sunt aut.
@@ -111,6 +109,6 @@ export default function VerticalIconTabPanel() {
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quia praesentium nisi placeat tempore perspiciatis alias dolore laboriosam.
                 </Typography>
             </TabPanel>
-        </div>
+       </div>
     );
 }
