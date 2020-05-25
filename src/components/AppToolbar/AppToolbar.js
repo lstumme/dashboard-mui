@@ -53,7 +53,7 @@ const AppToolbar = (props) => {
                     color="inherit"
                     className={classes.flex}
                 >
-                    My Title
+                    Material UI Dashboard
                         </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>

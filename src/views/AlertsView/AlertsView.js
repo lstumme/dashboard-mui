@@ -4,13 +4,18 @@ import {
     Grid,
     Card, CardHeader, CardContent,
     Button,
+    Dialog, DialogActions, DialogContentText, DialogContent,
     Typography,
 } from '@material-ui/core';
+import {
+    CheckCircleOutline as CheckCircleOutlineIcon
+} from '@material-ui/icons';
 
 import {
     SimpleAlert,
     TitleAlert,
-    SuccessAlert
+    SuccessAlert,
+    ConfirmationAlert
 } from './Components';
 
 const useStyles = makeStyles(theme => ({
@@ -40,6 +45,15 @@ const useStyles = makeStyles(theme => ({
 
 const AlertsView = () => {
     const classes = useStyles();
+
+    const [opendeletesuccess, setOpenDeleteSuccess] = React.useState(false);
+
+    const handleCloseDeleteSuccess = () => {
+        setOpenDeleteSuccess(false);
+    }
+    const showSuccess = () => {
+        setOpenDeleteSuccess(true);
+    }
 
     return (
         <Fragment>
@@ -92,8 +106,32 @@ const AlertsView = () => {
                     <Card className={classes.cardroot}>
                         <CardHeader title="A warning message, with a function attached to the 'Confirm' Button..." />
                         <CardContent>
-                            <Button variant="contained" color="primary">Try it!</Button>
+                            <ConfirmationAlert onAccept={showSuccess} label="Try it!">
+                                Are you sure you want to delete this file ?
+                            </ConfirmationAlert>
+                            <Dialog
+                                open={opendeletesuccess}
+                                onClose={handleCloseDeleteSuccess}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <DialogContent>
+                                    <div style={{textAlign: "center"}}>
+                                        <CheckCircleOutlineIcon style={{ fontSize: 75, color:"lightGreen" }}/>
+                                    </div>
+                                    <DialogContentText id="alert-dialog-description">
+                                        The file has been successfuly deleted !
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={handleCloseDeleteSuccess} color="primary" autoFocus>
+                                        Close
+                                    </Button>
+                                </DialogActions>
+                            </Dialog>
+
                         </CardContent>
+
                     </Card>
                 </Grid>
                 <Grid item md={3} sm={12}>
