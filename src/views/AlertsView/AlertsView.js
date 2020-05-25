@@ -82,7 +82,9 @@ const AlertsView = () => {
                     <Card className={classes.cardroot}>
                         <CardHeader title="Custom HTML description" />
                         <CardContent>
-                            <Button variant="contained" color="primary">Try it!</Button>
+                            <TitleAlert label="Try it!" title="Customize Alert content with HTML tags">
+                            <b>Lorem ipsum dolor</b> <u>sit amet consectetur adipisicing elit</u>. Eligendi, porro soluta quia aliquid totam facilis blanditiis hic eos. Voluptas itaque harum quod consectetur possimus quia animi eligendi, <em>fugiat repudiandae asperiores.</em>
+                            </TitleAlert>
                         </CardContent>
                     </Card>
                 </Grid>
