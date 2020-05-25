@@ -1,15 +1,14 @@
 import React, {Fragment} from 'react';
-import { makeStyles } from '@material-ui/styles';
 import {
     Button, 
-    Dialog, DialogTitle, DialogActions, DialogContentText, DialogContent
+    Dialog, DialogActions, DialogContentText, DialogContent
 } from '@material-ui/core';
 import {
     CheckCircleOutline as CheckCircleOutlineIcon
 } from '@material-ui/icons';
 
 const SuccessAlert = (props) => {
-    const { label, title, children } = props;
+    const { label, children } = props;
     const [open, setOpen] = React.useState(false);
 
     const handleClose = () => {

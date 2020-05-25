@@ -1,7 +1,6 @@
-import React, {Fragment} from 'react';
-import { makeStyles } from '@material-ui/styles';
+import React, { Fragment } from 'react';
 import {
-    Button, 
+    Button,
     Dialog, DialogTitle, DialogActions, DialogContentText, DialogContent
 } from '@material-ui/core';
 

@@ -1,12 +1,11 @@
-import React, {Fragment} from 'react';
-import { makeStyles } from '@material-ui/styles';
+import React, { Fragment } from 'react';
 import {
-    Button, 
-    Dialog, DialogTitle, DialogActions, DialogContentText, DialogContent
+    Button,
+    Dialog, DialogActions, DialogContentText, DialogContent
 } from '@material-ui/core';
 
 const SimpleAlert = (props) => {
-    const { label, title, children } = props;
+    const { label, children } = props;
     const [open, setOpen] = React.useState(false);
 
     const handleClose = () => {
