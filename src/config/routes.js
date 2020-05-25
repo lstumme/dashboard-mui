@@ -3,13 +3,16 @@ import {
     Crop75 as Crop75Icon,
     FontDownload as FontDownloadIcon,
     ViewWeek as ViewWeekIcon,
-    NotificationImportant as AlertsIcon
+    NotificationImportant as AlertsIcon,
+    ErrorOutline as NotificationsIcon,
+
 } from '@material-ui/icons';
 import {
     ButtonsView,
     TypographyView,
     PanelsView, 
-    AlertsView
+    AlertsView,
+    NotificationView
 } from '../views';
 
 const routes = [
@@ -36,6 +39,12 @@ const routes = [
         path: "/alerts",
         view: <AlertsView/>,
         icon: <AlertsIcon/>
+    },
+    {
+        name: "Notifications",
+        path: "/notifications",
+        view: <NotificationView/>,
+        icon: <NotificationsIcon/>
     }
 
 ];
