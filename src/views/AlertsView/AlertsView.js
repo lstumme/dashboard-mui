@@ -8,7 +8,8 @@ import {
     Typography,
 } from '@material-ui/core';
 import {
-    CheckCircleOutline as CheckCircleOutlineIcon
+    CheckCircleOutline as CheckCircleOutlineIcon,
+    Cancel as CancelOutlineIcon
 } from '@material-ui/icons';
 
 import {
@@ -47,6 +48,7 @@ const AlertsView = () => {
     const classes = useStyles();
 
     const [opendeletesuccess, setOpenDeleteSuccess] = React.useState(false);
+    const [opendeleteaborted, setOpenDeleteAborted] = React.useState(false);
 
     const handleCloseDeleteSuccess = () => {
         setOpenDeleteSuccess(false);
@@ -54,6 +56,15 @@ const AlertsView = () => {
     const showSuccess = () => {
         setOpenDeleteSuccess(true);
     }
+
+    const handleCloseDeleteAborted = () => {
+        setOpenDeleteAborted(false);
+    }
+    const showAbort = () => {
+        setOpenDeleteAborted(true);
+    }
+
+
 
     return (
         <Fragment>
@@ -67,7 +78,7 @@ const AlertsView = () => {
                         <CardHeader title="Basic Example" />
                         <CardContent>
                             <SimpleAlert label="Try it!">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, porro soluta quia aliquid totam facilis blanditiis hic eos. Voluptas itaque harum quod consectetur possimus quia animi eligendi, fugiat repudiandae asperiores.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, porro soluta quia aliquid totam facilis blanditiis hic eos. Voluptas itaque harum quod consectetur possimus quia animi eligendi, fugiat repudiandae asperiores.
                             </SimpleAlert>
                         </CardContent>
                     </Card>
@@ -97,7 +108,7 @@ const AlertsView = () => {
                         <CardHeader title="Custom HTML description" />
                         <CardContent>
                             <TitleAlert label="Try it!" title="Customize Alert content with HTML tags">
-                            <b>Lorem ipsum dolor</b> <u>sit amet consectetur adipisicing elit</u>. Eligendi, porro soluta quia aliquid totam facilis blanditiis hic eos. Voluptas itaque harum quod consectetur possimus quia animi eligendi, <em>fugiat repudiandae asperiores.</em>
+                                <b>Lorem ipsum dolor</b> <u>sit amet consectetur adipisicing elit</u>. Eligendi, porro soluta quia aliquid totam facilis blanditiis hic eos. Voluptas itaque harum quod consectetur possimus quia animi eligendi, <em>fugiat repudiandae asperiores.</em>
                             </TitleAlert>
                         </CardContent>
                     </Card>
@@ -109,36 +120,16 @@ const AlertsView = () => {
                             <ConfirmationAlert onAccept={showSuccess} label="Try it!">
                                 Are you sure you want to delete this file ?
                             </ConfirmationAlert>
-                            <Dialog
-                                open={opendeletesuccess}
-                                onClose={handleCloseDeleteSuccess}
-                                aria-labelledby="alert-dialog-title"
-                                aria-describedby="alert-dialog-description"
-                            >
-                                <DialogContent>
-                                    <div style={{textAlign: "center"}}>
-                                        <CheckCircleOutlineIcon style={{ fontSize: 75, color:"lightGreen" }}/>
-                                    </div>
-                                    <DialogContentText id="alert-dialog-description">
-                                        The file has been successfuly deleted !
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleCloseDeleteSuccess} color="primary" autoFocus>
-                                        Close
-                                    </Button>
-                                </DialogActions>
-                            </Dialog>
-
                         </CardContent>
-
                     </Card>
                 </Grid>
                 <Grid item md={3} sm={12}>
                     <Card className={classes.cardroot}>
                         <CardHeader title="...and by passing a parameter, you can execute something else for 'Cancel'" />
                         <CardContent>
-                            <Button variant="contained" color="primary">Try it!</Button>
+                            <ConfirmationAlert onAccept={showSuccess} onDenied={showAbort} label="Try it!">
+                                Are you sure you want to delete this file ?
+                            </ConfirmationAlert>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -158,6 +149,47 @@ const AlertsView = () => {
                         </CardContent>
                     </Card>
                 </Grid>
+                <Dialog
+                    open={opendeletesuccess}
+                    onClose={handleCloseDeleteSuccess}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogContent>
+                        <div style={{ textAlign: "center" }}>
+                            <CheckCircleOutlineIcon style={{ fontSize: 75, color: "lightGreen" }} />
+                        </div>
+                        <DialogContentText id="alert-dialog-description">
+                            The file has been successfuly deleted !
+                                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleCloseDeleteSuccess} color="primary" autoFocus>
+                            Close
+                                    </Button>
+                    </DialogActions>
+                </Dialog>
+                <Dialog
+                    open={opendeleteaborted}
+                    onClose={handleCloseDeleteAborted}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogContent>
+                        <div style={{ textAlign: "center" }}>
+                            <CancelOutlineIcon style={{ fontSize: 75, color: "Red" }} />
+                        </div>
+                        <DialogContentText id="alert-dialog-description">
+                            The file has been is safe !
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleCloseDeleteAborted} color="primary" autoFocus>
+                            Close
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+
             </Grid>
         </Fragment>
     );

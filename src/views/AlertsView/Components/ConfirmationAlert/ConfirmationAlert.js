@@ -1,6 +1,6 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import {
-    Button, 
+    Button,
     Dialog, DialogActions, DialogContentText, DialogContent
 } from '@material-ui/core';
 import {
@@ -8,7 +8,7 @@ import {
 } from '@material-ui/icons';
 
 const ConfirmationAlert = (props) => {
-    const { label, children, onAccept } = props;
+    const { label, children, onAccept, onDenied } = props;
     const [open, setOpen] = React.useState(false);
 
     const handleConfirm = event => {
@@ -16,8 +16,9 @@ const ConfirmationAlert = (props) => {
         onAccept(event);
     }
 
-    const handleClose = () => {
+    const handleClose = event => {
         setOpen(false);
+        onDenied(event);
     }
     const handleOpen = () => {
         setOpen(true);
@@ -34,8 +35,8 @@ const ConfirmationAlert = (props) => {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogContent>
-                    <div style={{textAlign: "center"}}>
-                        <WarningOutlineIcon style={{ fontSize: 75, color:"orange" }}/>
+                    <div style={{ textAlign: "center" }}>
+                        <WarningOutlineIcon style={{ fontSize: 75, color: "orange" }} />
                     </div>
                     <DialogContentText id="alert-dialog-description">
                         {children}
@@ -51,7 +52,7 @@ const ConfirmationAlert = (props) => {
                 </DialogActions>
             </Dialog>
         </Fragment>
-    )    
+    )
 };
 
 export default ConfirmationAlert;
