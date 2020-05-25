@@ -77,33 +77,33 @@ export default function VerticalTabPanel() {
             </Tabs>
             <TabPanel value={value} index={0}>
                 <Typography variant="body1">
-                    Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error natus, repellat officiis adipisci perspiciatis vel tempora. Quae aspernatur facere fugiat alias atque quibusdam illum excepturi. Expedita ut ratione sunt aut.
                 </Typography>
                 <br></br>
                 <Typography variant="body1">
-                    Dramatically visualize customer directed convergence without revolutionary ROI. Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium culpa repellendus vitae, rerum illo voluptate suscipit voluptatem aspernatur a similique?
                 </Typography>
                 <br></br>
                 <Typography variant="body1">
-                    This is very nice.
+                    Lorem ipsum dolor sit amet.
                 </Typography>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Typography variant="body1">
-                    Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci totam quae voluptate suscipit unde veritatis. Fugit nihil iste dolor asperiores.
                 </Typography>
                 <br></br>
                 <Typography variant="body1">
-                    Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, atque.
                 </Typography>      
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Typography variant="body1">
-                    Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas.
-                </Typography>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quidem veniam est deleniti. Ipsa explicabo et tenetur, numquam nihil assumenda corrupti laboriosam eligendi praesentium perspiciatis.
+               </Typography>
                     <br></br>
                 <Typography variant="body1">
-                    Dynamically innovate resource-leveling customer service for state of the art customer service.      
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro quia praesentium nisi placeat tempore perspiciatis alias dolore laboriosam.
                 </Typography>
             </TabPanel>
         </div>
