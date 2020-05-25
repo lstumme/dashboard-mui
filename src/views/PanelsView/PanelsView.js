@@ -9,7 +9,8 @@ import {
 import {
     HorizontalTabPanel,
     VerticalTabPanel,
-    AccordionPanel
+    AccordionPanel,
+    VerticalIconsTabPanel
 } from './Components';
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(2)
     },
     cardroot2: {
-        minHeight: 470,
+        minHeight: 490,
         margin: theme.spacing(2)
     }
 }));
@@ -49,9 +50,17 @@ const PanelsView = () => {
             </Grid>
             <Grid item md={6} sm={12}>
                 <Card className={classes.cardroot2}>
-                    <CardHeader title="Collapsible Accordion"/>
+                    <CardHeader title="Collapsible Accordion" subheader="_"/>
                     <CardContent>
                         <AccordionPanel />
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item md={6} sm={12}>
+                <Card className={classes.cardroot2}>
+                    <CardHeader title="Navigation Pills Icons" subheader="Vertical Tabs"/>
+                    <CardContent>
+                        <VerticalIconsTabPanel />
                     </CardContent>
                 </Card>
             </Grid>
