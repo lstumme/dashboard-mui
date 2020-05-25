@@ -16,7 +16,8 @@ import {
     SimpleAlert,
     TitleAlert,
     SuccessAlert,
-    ConfirmationAlert
+    ConfirmationAlert,
+    AutoCloseAlert
 } from './Components';
 
 const useStyles = makeStyles(theme => ({
@@ -135,9 +136,11 @@ const AlertsView = () => {
                 </Grid>
                 <Grid item md={3} sm={12}>
                     <Card className={classes.cardroot}>
-                        <CardHeader title="A message with auto close timer set to 2 seconds" />
+                        <CardHeader title="A message with auto close timer set to 3 seconds" />
                         <CardContent>
-                            <Button variant="contained" color="primary">Try it!</Button>
+                            <AutoCloseAlert label="Try it!" timeout="3000"> 
+                                This alert wil be closed in 3s... Please wait.
+                            </AutoCloseAlert>
                         </CardContent>
                     </Card>
                 </Grid>
