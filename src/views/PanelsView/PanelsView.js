@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(2)
     },
     cardroot2: {
-        minHeight: 490,
+        minHeight: 440,
         margin: theme.spacing(2)
     }
 }));
