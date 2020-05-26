@@ -5,6 +5,10 @@ import { Grid, Typography as MuiTypography } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
         padding: theme.spacing(1),
+        '& > *': {
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+        }
     }
 }));
 
@@ -32,11 +36,11 @@ const TypographyView = () => {
     return (
         <Grid container spacing={1} className={classes.root}>
             {Object.keys(variants).map((key, i) => (
-                <Fragment key={i}>
-                    <Grid item sm={2} xs={12}>
+                <Fragment key={i} >
+                    <Grid item sm={2} >
                         <MuiTypography variant="caption">{key}</MuiTypography>
                     </Grid>
-                    <Grid item sm={10} xs={12}>
+                    <Grid item sm={10} >
                         <MuiTypography variant={key}>{variants[key]}</MuiTypography>
                     </Grid>
                 </Fragment>
