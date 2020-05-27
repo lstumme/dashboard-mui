@@ -4,10 +4,7 @@ import {
 } from '@material-ui/lab';
 
 const Alert = (props) => {
-    const alertClosed = () => {
-
-    };
-    return <MuiAlert elevation={6} variant="filled" onClose={alertClosed} {...props} />;
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
 };
 
 export default Alert;
