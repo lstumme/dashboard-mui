@@ -38,9 +38,8 @@ const MainPanel = withStyles(styles)(
                     <hl></hl>
                     <span>
                         <Typography variant="subtitle2">
-                        &copy; {1900 + new Date().getYear()}{" "}
-                        Ludovic Stumme
-                        , made for whatever you need !
+                            &copy; {1900 + new Date().getYear()}{" "}
+                            Ludovic Stumme, made for whatever you need !
                         </Typography>
                     </span>
                     </footer>

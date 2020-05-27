@@ -26,6 +26,10 @@ const useStyles = makeStyles(theme => ({
     cardroot2: {
         minHeight: 440,
         margin: theme.spacing(2)
+    },
+    cardroot3: {
+        minHeight: 470,
+        margin: theme.spacing(2)
     }
 }));
 const PanelsView = () => {
@@ -65,7 +69,7 @@ const PanelsView = () => {
                 </Card>
             </Grid>
             <Grid item md={6} sm={12}>
-                <Card className={classes.cardroot2}>
+                <Card className={classes.cardroot3}>
                     <CardHeader title="Collapsible Accordion"/>
                     <CardContent>
                         <AccordionPanel />
