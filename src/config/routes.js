@@ -5,15 +5,17 @@ import {
     ViewWeek as ViewWeekIcon,
     NotificationImportant as AlertsIcon,
     ErrorOutline as NotificationsIcon,
-    VerticalSplitOutlined as RegularFormIcon,
+    VerticalSplitOutlined as RegularFormsIcon,
+    ContactMail as ExtendedFormsIcon,
 } from '@material-ui/icons';
 import {
     ButtonsView,
     TypographyView,
-    PanelsView, 
+    PanelsView,
     AlertsView,
     NotificationView,
-    RegularFormView
+    RegularFormsView,
+    ExtendedFormsView
 } from '../views';
 
 const routes = [
@@ -36,22 +38,28 @@ const routes = [
         icon: <ViewWeekIcon />
     },
     {
-        name:"Alerts",
+        name: "Alerts",
         path: "/alerts",
-        view: <AlertsView/>,
-        icon: <AlertsIcon/>
+        view: <AlertsView />,
+        icon: <AlertsIcon />
     },
     {
         name: "Notifications",
         path: "/notifications",
-        view: <NotificationView/>,
-        icon: <NotificationsIcon/>
+        view: <NotificationView />,
+        icon: <NotificationsIcon />
     },
     {
         name: "Regular Forms",
         path: "/regularforms",
-        view: <RegularFormView/>,
-        icon: <RegularFormIcon/>
+        view: <RegularFormsView />,
+        icon: <RegularFormsIcon />
+    },
+    {
+        name: "Extended Forms",
+        path: "/extendedforms",
+        view: <ExtendedFormsView />,
+        icon: <ExtendedFormsIcon />
     }
 ];
 
