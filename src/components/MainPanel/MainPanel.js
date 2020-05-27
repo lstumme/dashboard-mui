@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import {Toolbar} from '@material-ui/core';
+import {Toolbar, Typography} from '@material-ui/core';
 import {Switch, Route} from 'react-router-dom';
 const styles = theme => ({
     root: {
@@ -10,6 +10,14 @@ const styles = theme => ({
         flexGrow: 1,
         padding: theme.spacing(3),
       },
+    footer: {
+        textAlign: "center",
+        margin: theme.spacing(3),
+        padding: theme.spacing(2),
+        borderStyle: "solid none none none",
+        border: 1,
+        borderColor: "lightgray"
+    }
 });
 
 const MainPanel = withStyles(styles)(
@@ -26,6 +34,17 @@ const MainPanel = withStyles(styles)(
                             ))}
                         </Switch>
                     </div>
+                    <footer className={classes.footer}>
+                    <hl></hl>
+                    <span>
+                        <Typography variant="subtitle2">
+                        &copy; {1900 + new Date().getYear()}{" "}
+                        Ludovic Stumme
+                        , made for whatever you need !
+                        </Typography>
+                    </span>
+                    </footer>
+
                 </main>
             );
         }
