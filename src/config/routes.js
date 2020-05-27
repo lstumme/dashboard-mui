@@ -5,14 +5,15 @@ import {
     ViewWeek as ViewWeekIcon,
     NotificationImportant as AlertsIcon,
     ErrorOutline as NotificationsIcon,
-
+    VerticalSplitOutlined as RegularFormIcon,
 } from '@material-ui/icons';
 import {
     ButtonsView,
     TypographyView,
     PanelsView, 
     AlertsView,
-    NotificationView
+    NotificationView,
+    RegularFormView
 } from '../views';
 
 const routes = [
@@ -45,8 +46,13 @@ const routes = [
         path: "/notifications",
         view: <NotificationView/>,
         icon: <NotificationsIcon/>
+    },
+    {
+        name: "Regular Forms",
+        path: "/regularforms",
+        view: <RegularFormView/>,
+        icon: <RegularFormIcon/>
     }
-
 ];
 
 export default routes;
